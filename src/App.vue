@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <PiePagina :tel-user="telefono" dir="C/SerogioPo 24" />
+    <h1>{{ mensaje }}</h1>
+    <hr />
+    <span> Libros disponibles:</span>
+    <pedropo :libros="libros"> </pedropo>
+    <hr />
+    <PiePagina :tel-user="telefono" dir="C/Pajascu 25" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import PiePagina from "./components/PiePagina.vue";
+  import pedropo from "./components/listalibros.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: "App",
+    components: {
+      PiePagina,
+      pedropo
+    },
+    data() {
+      return {
+        mensaje: "Librería Mi Mundo de Papel",
+        telefono: 923451111,
+        libros: [
+          { titulo: "La villa de las telas" },
+          { titulo: "La isla de las tormentas" },
+          { titulo: "Dime quien soy" },
+        ],
+      };
+    },
+    methods: {
+      mostrarAlerta() {
+        alert("Número de libros almacenados:" + this.libros.length);
+      },
+    },
+  };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  h1, h2, h3, h4, h5 {
+    text-align: center;
+  }
+
+  
 </style>
